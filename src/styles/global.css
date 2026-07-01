@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fef4e8;
+  --color-cream-soft: #fffcf7;
+  --color-brown: #4f2102;
+  --color-brown-soft: #7a4a2a;
+  --color-green: #294023;
+  --color-green-light: #3d5c33;
+  --color-orange: #f55b29;
+  --color-orange-dark: #d1481e;
+  --color-lime: #d5de69;
+  --color-sky: #afd6f7;
+  --color-ink: #2a1b0f;
+  --color-ink-muted: #6b5947;
+
+  --font-display: "Instrument Serif", serif;
+  --font-body: "Archivo", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-brown);
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.9rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    background-color: var(--color-orange);
+    color: var(--color-cream-soft);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-orange-dark);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-brown);
+    border: 1.5px solid var(--color-brown);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-brown);
+    color: var(--color-cream-soft);
+  }
+
+  .btn-on-dark {
+    background-color: var(--color-cream);
+    color: var(--color-green);
+  }
+
+  .btn-on-dark:hover {
+    background-color: var(--color-lime);
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+  }
+}

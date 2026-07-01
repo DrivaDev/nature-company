@@ -1,0 +1,55 @@
+---
+const mapEmbedSrc = "https://www.google.com/maps?q=Dardo+Rocha+1394,+Mart%C3%ADnez,+Buenos+Aires&output=embed";
+const mapHref = "https://maps.app.goo.gl/uYUQTZJ5sJiga9Wr7";
+---
+
+<section id="encontranos" class="bg-cream px-5 py-24 sm:px-8 sm:py-32">
+  <div class="mx-auto max-w-7xl">
+    <div class="max-w-2xl">
+      <p class="section-eyebrow">Encontranos</p>
+      <h2 class="mt-3 font-display text-4xl text-brown sm:text-5xl">Te esperamos en Martínez</h2>
+    </div>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
+      <address class="not-italic">
+        <dl class="space-y-7">
+          <div>
+            <dt class="section-eyebrow">Dirección</dt>
+            <dd class="mt-2 text-lg text-ink">Dardo Rocha 1394, Martínez, Buenos Aires</dd>
+          </div>
+          <div>
+            <dt class="section-eyebrow">Teléfono / WhatsApp</dt>
+            <dd class="mt-2 text-lg text-ink">
+              <a href="tel:+5491171434499" class="hover:text-orange">+54 9 11 7143-4499</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="section-eyebrow">Email</dt>
+            <dd class="mt-2 text-lg text-ink">
+              <a href="mailto:naturecompanyresto@gmail.com" class="hover:text-orange">naturecompanyresto@gmail.com</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="section-eyebrow">Horarios</dt>
+            <dd class="mt-2 text-lg text-ink">Consultá disponibilidad y horarios actualizados por WhatsApp.</dd>
+          </div>
+        </dl>
+        <a href={mapHref} target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-9">
+          Cómo llegar
+        </a>
+      </address>
+
+      <div class="overflow-hidden rounded-3xl border border-brown/10">
+        <iframe
+          src={mapEmbedSrc}
+          width="100%"
+          height="420"
+          style="border:0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación de Nature Company Resto en Dardo Rocha 1394, Martínez"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

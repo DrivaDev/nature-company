@@ -1,0 +1,85 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Nature Company Resto | Restaurante natural y sin TACC en Martínez",
+  description = "Restaurante de cocina natural, artesanal y sin TACC en Martínez. Platos plant-based de estación con ingredientes frescos y locales. Reservá tu mesa.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, "https://naturecompany.com.ar/");
+const ogImage = new URL("/og-image.jpg", "https://naturecompany.com.ar/");
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: "Nature Company Resto",
+  description:
+    "Restaurante de cocina natural, artesanal y sin TACC en Martínez, zona norte del GBA. Cocina plant-based, de estación, con ingredientes frescos y locales.",
+  url: "https://naturecompany.com.ar/",
+  telephone: "+54-9-11-7143-4499",
+  email: "naturecompanyresto@gmail.com",
+  image: ogImage.toString(),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Dardo Rocha 1394",
+    addressLocality: "Martínez",
+    addressRegion: "Buenos Aires",
+    addressCountry: "AR",
+  },
+  servesCuisine: ["Cocina natural", "Plant-based", "Sin TACC", "Vegetariana"],
+  priceRange: "$$$",
+  sameAs: [
+    "https://www.instagram.com/naturecompany_/",
+    "https://www.facebook.com/profile.php?id=61573831691007",
+  ],
+  hasMap: "https://maps.app.goo.gl/uYUQTZJ5sJiga9Wr7",
+};
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Nature Company Resto" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
