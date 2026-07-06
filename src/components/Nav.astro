@@ -1,5 +1,6 @@
 ---
 const links = [
+  { href: "#inicio", label: "Inicio" },
   { href: "#propuesta", label: "Propuesta" },
   { href: "#chef", label: "El chef" },
   { href: "#menu", label: "Menú" },
@@ -12,7 +13,7 @@ const whatsappHref =
   "https://api.whatsapp.com/send/?phone=5491171434499&text=Buen+d%C3%ADa%2C+quisiera+reservar+una+mesa";
 ---
 
-<header class="fixed inset-x-0 top-0 z-50">
+<header id="site-header" class="fixed inset-x-0 top-0 z-50">
   <a
     href={menuHref}
     target="_blank"
@@ -57,7 +58,7 @@ const whatsappHref =
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-on-dark hidden lg:inline-flex"
+          class="hidden rounded-full border border-cream-soft/30 px-4 py-1.5 text-sm font-medium text-cream-soft/90 transition-colors hover:border-cream-soft/60 hover:text-cream-soft lg:inline-flex"
         >
           Reservar mesa
         </a>
@@ -68,62 +69,78 @@ const whatsappHref =
 
 <aside
   id="sidebar-menu"
-  class="fixed inset-y-0 left-0 z-50 flex w-80 max-w-[85vw] -translate-x-full flex-col bg-brown text-cream-soft shadow-2xl transition-transform duration-300 ease-out"
+  class="fixed bottom-0 left-0 z-40 flex w-80 max-w-[85vw] -translate-x-full flex-col bg-cream-soft text-brown shadow-2xl transition-transform duration-300 ease-out"
   aria-hidden="true"
 >
-  <div class="flex items-center justify-between border-b border-cream-soft/10 px-6 py-5">
-    <img
-      src="/images/logo.svg"
-      alt="Nature Company Resto"
-      width="48"
-      height="48"
-      class="h-11 w-11 brightness-0 invert"
-    />
-    <button
-      id="sidebar-close"
-      type="button"
-      class="flex h-10 w-10 items-center justify-center rounded-full text-cream-soft transition-colors hover:bg-brown-soft"
-      aria-label="Cerrar menú"
-    >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-6 w-6" aria-hidden="true">
-        <line x1="6" y1="6" x2="18" y2="18" />
-        <line x1="18" y1="6" x2="6" y2="18" />
-      </svg>
-    </button>
-  </div>
-
-  <nav class="flex flex-1 flex-col gap-1 px-4 py-6" aria-label="Menú lateral">
+  <nav class="flex flex-1 flex-col overflow-y-auto py-4" aria-label="Menú lateral">
     {
-      links.map((link) => (
-        <a href={link.href} class="rounded-lg px-4 py-3 text-lg font-medium text-cream-soft transition-colors hover:bg-brown-soft" data-sidebar-link>
+      links.map((link, i) => (
+        <a
+          href={link.href}
+          class:list={[
+            "px-8 py-4 text-xl font-medium text-ink transition-colors hover:bg-cream",
+            i === 0 && "bg-cream",
+          ]}
+          data-sidebar-link
+        >
           {link.label}
         </a>
       ))
     }
   </nav>
 
-  <div class="border-t border-cream-soft/10 px-4 py-6">
-    <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-on-dark w-full justify-center" data-sidebar-link>
-      Reservar mesa
+  <div class="flex items-center gap-5 border-t border-brown/10 px-8 py-6">
+    <a
+      href="https://www.facebook.com/profile.php?id=61573831691007"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-brown transition-colors hover:text-orange"
+      aria-label="Facebook"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true">
+        <path d="M14 9h3l.5-3H14V4.2c0-.9.3-1.5 1.6-1.5H17.6V0.1C17.2.05 16.1 0 15 0c-2.4 0-4 1.4-4 4v2H8v3h3v9h3V9Z" />
+      </svg>
+    </a>
+    <a
+      href="https://www.instagram.com/naturecompany_/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-brown transition-colors hover:text-orange"
+      aria-label="Instagram"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
     </a>
   </div>
 </aside>
 
 <div
   id="menu-backdrop"
-  class="fixed inset-0 z-40 bg-ink/50 opacity-0 pointer-events-none transition-opacity duration-300"
+  class="fixed inset-0 z-30 bg-ink/50 opacity-0 pointer-events-none transition-opacity duration-300"
   aria-hidden="true"
 >
 </div>
 
 <script>
+  const header = document.getElementById("site-header");
   const toggle = document.getElementById("menu-toggle");
   const sidebar = document.getElementById("sidebar-menu");
-  const closeBtn = document.getElementById("sidebar-close");
   const backdrop = document.getElementById("menu-backdrop");
 
-  if (toggle && sidebar && backdrop) {
+  if (header && toggle && sidebar && backdrop) {
+    const syncTop = () => {
+      const h = header.offsetHeight;
+      sidebar.style.top = `${h}px`;
+      backdrop.style.top = `${h}px`;
+    };
+    syncTop();
+    window.addEventListener("resize", syncTop);
+
     const openMenu = () => {
+      syncTop();
       toggle.setAttribute("aria-expanded", "true");
       sidebar.setAttribute("aria-hidden", "false");
       sidebar.classList.remove("-translate-x-full");
@@ -146,7 +163,6 @@ const whatsappHref =
       isOpen ? closeMenu() : openMenu();
     });
 
-    closeBtn?.addEventListener("click", closeMenu);
     backdrop.addEventListener("click", closeMenu);
 
     document.addEventListener("keydown", (event) => {
