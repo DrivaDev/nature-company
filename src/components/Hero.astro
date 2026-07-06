@@ -1,13 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/hero.png";
-
-const whatsappHref =
-  "https://api.whatsapp.com/send/?phone=5491171434499&text=Buen+d%C3%ADa%2C+quisiera+reservar+una+mesa";
-const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1GguuJFE/view";
 ---
 
-<section id="inicio" class="bg-cream pt-[7.5rem] sm:pt-32">
+<section id="inicio" class="bg-cream">
   <Image
     src={heroImage}
     alt="Bienvenidos a Nature — cocina 70% plant-based, sin TACC y proteínas sostenibles en Martínez"
@@ -15,13 +11,22 @@ const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1Gguu
     sizes="100vw"
     format="webp"
     quality={82}
-    class="w-full"
+    class="block w-full"
     loading="eager"
     fetchpriority="high"
   />
-
-  <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-4 px-5 py-10 sm:px-8">
-    <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reservar mesa</a>
-    <a href={menuHref} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver menú</a>
-  </div>
 </section>
+
+<script>
+  const header = document.getElementById("site-header");
+  const hero = document.getElementById("inicio");
+
+  if (header && hero) {
+    const syncOffset = () => {
+      hero.style.paddingTop = `${header.offsetHeight}px`;
+    };
+    syncOffset();
+    window.addEventListener("resize", syncOffset);
+    window.addEventListener("load", syncOffset);
+  }
+</script>
