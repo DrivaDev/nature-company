@@ -21,7 +21,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 88px;
+    scroll-padding-top: 128px;
   }
 
   body {
@@ -60,12 +60,12 @@
   }
 
   .btn-primary {
-    background-color: var(--color-orange);
+    background-color: var(--color-brown);
     color: var(--color-cream-soft);
   }
 
   .btn-primary:hover {
-    background-color: var(--color-orange-dark);
+    background-color: var(--color-brown-soft);
   }
 
   .btn-secondary {

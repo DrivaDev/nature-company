@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import panImage from "../assets/images/pan-artesanal-2.jpg";
+import panImage from "../assets/images/nuestro-menu.png";
 
 const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1GguuJFE/view";
 ---
@@ -19,15 +19,15 @@ const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1Gguu
       </div>
     </div>
 
-    <div class="order-1 aspect-[4/5] overflow-hidden rounded-3xl lg:order-2">
+    <div class="order-1 aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-cream-soft to-cream lg:order-2">
       <Image
         src={panImage}
-        alt="Pan artesanal recién horneado, elaborado a mano en Nature Company Resto"
+        alt="Plato de estación de Nature Company Resto: tomate, crema vegetal y semillas sobre plato blanco"
         widths={[480, 800, 1100]}
         sizes="(min-width: 1024px) 46vw, 90vw"
         format="webp"
         quality={82}
-        class="h-full w-full object-cover"
+        class="h-full w-full object-contain"
         loading="lazy"
       />
     </div>

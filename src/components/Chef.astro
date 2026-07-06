@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import chefImage from "../assets/images/chef-juan-manzo.jpg";
+import chefImage from "../assets/images/juan-manzo.png";
 ---
 
 <section id="chef" class="bg-cream-soft px-5 py-24 sm:px-8 sm:py-32">
   <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-    <div class="aspect-[4/5] overflow-hidden rounded-3xl">
+    <div class="aspect-[4/5] overflow-hidden rounded-3xl bg-gradient-to-b from-cream to-lime/40">
       <Image
         src={chefImage}
         alt="El chef Juan Manzo emplatando un plato de cocina natural en la cocina de Nature Company Resto, Martínez"
@@ -13,8 +13,7 @@ import chefImage from "../assets/images/chef-juan-manzo.jpg";
         sizes="(min-width: 1024px) 46vw, 90vw"
         format="webp"
         quality={82}
-        class="h-full w-full object-cover"
-        style="object-position: 50% 22%;"
+        class="h-full w-full object-contain object-bottom"
         loading="lazy"
       />
     </div>
