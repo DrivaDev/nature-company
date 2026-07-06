@@ -1,38 +1,27 @@
 ---
 import { Image } from "astro:assets";
-import heroImage from "../assets/images/fachada-nature-co.jpg";
+import heroImage from "../assets/images/hero.png";
 
 const whatsappHref =
   "https://api.whatsapp.com/send/?phone=5491171434499&text=Buen+d%C3%ADa%2C+quisiera+reservar+una+mesa";
 const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1GguuJFE/view";
 ---
 
-<section id="inicio" class="relative flex min-h-[92svh] items-end overflow-hidden pt-32">
+<section id="inicio" class="bg-cream pt-[7.5rem] sm:pt-32">
   <Image
     src={heroImage}
-    alt="Fachada de Nature Company Resto, restaurante natural en Martínez cubierto de enredadera"
-    widths={[640, 1024, 1600, 2200]}
+    alt="Bienvenidos a Nature — cocina 70% plant-based, sin TACC y proteínas sostenibles en Martínez"
+    widths={[640, 1024, 1600, 1920]}
     sizes="100vw"
     format="webp"
-    quality={80}
-    class="absolute inset-0 -z-20 h-full w-full object-cover"
-    style="object-position: 45% 35%;"
+    quality={82}
+    class="w-full"
     loading="eager"
     fetchpriority="high"
   />
-  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/10" aria-hidden="true"></div>
 
-  <div class="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 sm:pb-28">
-    <p class="section-eyebrow text-lime">Martínez · Zona Norte</p>
-    <h1 class="mt-4 max-w-2xl font-display text-5xl leading-[1.05] text-cream-soft sm:text-6xl lg:text-7xl">
-      Cocina natural, artesanal y de estación
-    </h1>
-    <p class="mt-6 max-w-xl text-lg text-cream-soft/90">
-      Platos plant-based elaborados con ingredientes reales, frescos y locales. En Martínez, zona norte.
-    </p>
-    <div class="mt-9 flex flex-wrap gap-4">
-      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reservar mesa</a>
-      <a href={menuHref} target="_blank" rel="noopener noreferrer" class="btn btn-on-dark">Ver menú</a>
-    </div>
+  <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-4 px-5 py-10 sm:px-8">
+    <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reservar mesa</a>
+    <a href={menuHref} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ver menú</a>
   </div>
 </section>
