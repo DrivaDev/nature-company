@@ -1,25 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette extracted from naturecompany.com.ar */
   --color-cream: #fef4e8;
   --color-cream-soft: #fffcf7;
   --color-brown: #4f2102;
-  --color-brown-soft: #682b03;
-  --color-rose: #e2bab1;
-  --color-blue: #334fb4;
-  --color-tan: #f9ba6e;
-  --color-ink: #121212;
-  --color-ink-muted: #5c4a3a;
+  --color-brown-soft: #7a4a2a;
+  --color-green: #294023;
+  --color-green-light: #3d5c33;
+  --color-orange: #f55b29;
+  --color-orange-dark: #d1481e;
+  --color-lime: #d5de69;
+  --color-sky: #afd6f7;
+  --color-ink: #2a1b0f;
+  --color-ink-muted: #6b5947;
 
+  --font-display: "Instrument Serif", serif;
   --font-body: "Archivo", sans-serif;
-  --font-display: "Archivo", sans-serif;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 96px;
+    scroll-padding-top: 88px;
   }
 
   body {
@@ -31,13 +33,10 @@
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6 {
+  h4 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    color: var(--color-brown);
+    font-weight: 400;
   }
 }
 
@@ -47,10 +46,10 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.85rem 2rem;
+    padding: 0.9rem 1.9rem;
     border-radius: 999px;
     font-family: var(--font-body);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
     letter-spacing: 0.01em;
     transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
@@ -61,37 +60,40 @@
   }
 
   .btn-primary {
-    background-color: var(--color-brown);
-    color: var(--color-cream);
+    background-color: var(--color-orange);
+    color: var(--color-cream-soft);
   }
 
   .btn-primary:hover {
-    background-color: var(--color-brown-soft);
+    background-color: var(--color-orange-dark);
   }
 
-  .btn-cream {
-    background-color: var(--color-cream);
-    color: var(--color-brown);
-  }
-
-  .btn-cream:hover {
-    background-color: var(--color-cream-soft);
-  }
-
-  .btn-outline {
+  .btn-secondary {
     background-color: transparent;
     color: var(--color-brown);
     border: 1.5px solid var(--color-brown);
   }
 
-  .btn-outline:hover {
+  .btn-secondary:hover {
     background-color: var(--color-brown);
-    color: var(--color-cream);
+    color: var(--color-cream-soft);
   }
 
-  .section-title {
-    font-family: var(--font-display);
+  .btn-on-dark {
+    background-color: var(--color-cream);
+    color: var(--color-green);
+  }
+
+  .btn-on-dark:hover {
+    background-color: var(--color-lime);
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
     font-weight: 600;
-    letter-spacing: -0.02em;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
   }
 }
