@@ -2,8 +2,8 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-green px-5 py-14 text-cream-soft sm:px-8">
-  <div class="mx-auto flex max-w-7xl flex-col items-center gap-8 text-center">
+<footer class="bg-ink px-5 py-14 text-cream/90 sm:px-8">
+  <div class="mx-auto flex max-w-[1200px] flex-col items-center gap-8 text-center">
     <img
       src="/images/logo.svg"
       alt="Nature Company Resto"
@@ -12,12 +12,14 @@ const year = new Date().getFullYear();
       class="h-16 w-16 brightness-0 invert"
     />
 
-    <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm" aria-label="Redes sociales">
+    <p class="text-lg font-semibold text-cream">Nature Company Resto</p>
+
+    <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm" aria-label="Enlaces y redes">
       <a
         href="https://www.instagram.com/naturecompany_/"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-orange"
+        class="hover:text-tan"
       >
         Instagram
       </a>
@@ -25,16 +27,17 @@ const year = new Date().getFullYear();
         href="https://www.facebook.com/profile.php?id=61573831691007"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-orange"
+        class="hover:text-tan"
       >
         Facebook
       </a>
-      <a href="mailto:naturecompanyresto@gmail.com" class="hover:text-orange">naturecompanyresto@gmail.com</a>
+      <a href="mailto:naturecompanyresto@gmail.com" class="hover:text-tan">naturecompanyresto@gmail.com</a>
+      <a href="#" class="hover:text-tan">Política de privacidad</a>
     </nav>
 
-    <div class="h-px w-full max-w-xs bg-cream-soft/15"></div>
+    <div class="h-px w-full max-w-xs bg-cream/15"></div>
 
-    <div class="flex flex-col items-center gap-2 text-xs text-cream-soft/70">
+    <div class="flex flex-col items-center gap-2 text-xs text-cream/60">
       <p>© {year} Nature Company Resto. Todos los derechos reservados.</p>
       <p class="flex items-center gap-1">
         <span>Desarrollado por</span>
@@ -42,7 +45,7 @@ const year = new Date().getFullYear();
           href="https://drivadev.com.ar"
           target="_blank"
           rel="noopener noreferrer"
-          class="font-medium text-cream-soft hover:text-orange"
+          class="font-medium text-cream hover:text-tan"
         >
           Driva Dev
         </a>

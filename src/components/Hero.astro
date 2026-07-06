@@ -2,12 +2,10 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/images/fachada-nature-co.jpg";
 
-const whatsappHref =
-  "https://api.whatsapp.com/send/?phone=5491171434499&text=Buen+d%C3%ADa%2C+quisiera+reservar+una+mesa";
 const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1GguuJFE/view";
 ---
 
-<section id="inicio" class="relative flex min-h-[92svh] items-end overflow-hidden pt-24">
+<section id="inicio" class="relative flex min-h-[92svh] items-center justify-center overflow-hidden pt-20">
   <Image
     src={heroImage}
     alt="Fachada de Nature Company Resto, restaurante natural en Martínez cubierto de enredadera"
@@ -16,23 +14,20 @@ const menuHref = "https://drive.google.com/file/d/17GD3KPfyQW8ZpE1CcwVPkIMk1Gguu
     format="webp"
     quality={80}
     class="absolute inset-0 -z-20 h-full w-full object-cover"
-    style="object-position: 45% 35%;"
+    style="object-position: 50% 40%;"
     loading="eager"
     fetchpriority="high"
   />
-  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/10" aria-hidden="true"></div>
+  <div class="absolute inset-0 -z-10 bg-ink/35" aria-hidden="true"></div>
 
-  <div class="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 sm:pb-28">
-    <p class="section-eyebrow text-lime">Martínez · Zona Norte</p>
-    <h1 class="mt-4 max-w-2xl font-display text-5xl leading-[1.05] text-cream-soft sm:text-6xl lg:text-7xl">
-      Cocina natural, artesanal y de estación
-    </h1>
-    <p class="mt-6 max-w-xl text-lg text-cream-soft/90">
-      Platos plant-based elaborados con ingredientes reales, frescos y locales. En Martínez, zona norte.
-    </p>
-    <div class="mt-9 flex flex-wrap gap-4">
-      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">Reservar mesa</a>
-      <a href={menuHref} target="_blank" rel="noopener noreferrer" class="btn btn-on-dark">Ver menú</a>
-    </div>
+  <div class="mx-auto w-full max-w-[1200px] px-5 text-center sm:px-8">
+    <a
+      href={menuHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-cream text-base sm:text-lg"
+    >
+      ¡Descubrí nuestra oferta gastronómica aquí!
+    </a>
   </div>
 </section>
