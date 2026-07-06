@@ -1,7 +1,4 @@
 ---
-const whatsappHref =
-  "https://api.whatsapp.com/send/?phone=5491171434499&text=Buen+d%C3%ADa%2C+quisiera+reservar+una+mesa";
-
 const pilares = [
   { title: "Artesanal", text: "Hecha a mano, con tiempo", icon: "beans" },
   { title: "Sostenible", text: "Respeto por el origen", icon: "leaf" },
@@ -17,13 +14,12 @@ const pilares = [
       <h2 class="mt-3 font-display text-4xl text-brown sm:text-5xl">Cuatro ideas que guían cada plato</h2>
     </div>
 
-    <div class="mt-14 rounded-[2.5rem] border border-brown/20 bg-cream-soft px-6 py-10 sm:px-10 sm:py-12">
-      <div class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
         {
           pilares.map((pilar) => (
-            <div class="flex items-start gap-4">
-              <span class="shrink-0 text-brown">
-                <svg viewBox="0 0 48 48" fill="none" class="h-11 w-11" aria-hidden="true">
+            <div class="flex flex-col items-start gap-4">
+              <span class="text-brown">
+                <svg viewBox="0 0 48 48" fill="none" class="h-12 w-12" aria-hidden="true">
                   {pilar.icon === "beans" && (
                     <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                       <ellipse cx="19" cy="24" rx="8" ry="12" transform="rotate(-18 19 24)" />
@@ -59,13 +55,6 @@ const pilares = [
             </div>
           ))
         }
-      </div>
-    </div>
-
-    <div class="mt-12 flex justify-center">
-      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-        Reservá tu mesa
-      </a>
     </div>
   </div>
 </section>
